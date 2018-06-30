@@ -39,6 +39,12 @@ function wxParse(bindName = 'wxParseData', type='html', data='<div class="color:
     var html = converter.makeHtml(data);
     transData = HtmlToJson.html2json(html, bindName);
     console.log(JSON.stringify(transData, ' ', ' '));
+  } else if (type == 'json') {
+    if (typeof data == 'string') {
+      transData = JSON.parse(data)
+    } else {
+      transData = data
+    }
   }
   transData.view = {};
   transData.view.imagePadding = 0;
